@@ -1,0 +1,58 @@
+					<div class="form-group">
+						<label for="multipleInputs">Enter Eligible Batches</label>
+						<div id="multipleInputContainer">
+							<!-- Initial input field -->
+							<div class="input-group mb-3">
+								<input type="text" name="multipleInputs[]" class="form-control">
+								<div class="input-group-append">
+									<button type="button" class="btn btn-outline-danger"
+										onclick="removeInputField(this)">Remove</button>
+								</div>
+							</div>
+						</div>
+						<button type="button" id="addInputField"
+							class="btn btn-outline-primary">Add Another</button>
+					</div>
+                            
+					<script>
+						document
+								.getElementById('addInputField')
+								.addEventListener(
+										'click',
+										function() {
+											const container = document
+													.getElementById('multipleInputContainer');
+											const inputGroup = document
+													.createElement('div');
+											inputGroup.className = 'input-group mb-3';
+											const input = document
+													.createElement('input');
+											input.type = 'text';
+											input.name = 'multipleInputs[]';
+											input.className = 'form-control';
+											const removeButton = document
+													.createElement('button');
+											removeButton.type = 'button';
+											removeButton.className = 'btn btn-outline-danger';
+											removeButton.textContent = 'Remove';
+											removeButton.onclick = function() {
+												removeInputField(this);
+											};
+											const appendDiv = document
+													.createElement('div');
+											appendDiv.className = 'input-group-append';
+
+											inputGroup.appendChild(input);
+											appendDiv.appendChild(removeButton);
+											inputGroup.appendChild(appendDiv);
+											container.appendChild(inputGroup);
+										});
+
+						function removeInputField(button) {
+							const inputGroup = button.closest('.input-group');
+							if (inputGroup) {
+								inputGroup.remove();
+							}
+						}
+					</script>
+                      -->
